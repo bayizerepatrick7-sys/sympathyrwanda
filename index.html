@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sympathy Rwanda</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#1b5e20,#880e4f);
+color:white;
+scroll-behavior:smooth;
+}
+
+/* HEADER */
+header{
+position:fixed;
+width:100%;
+padding:15px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
+height:80px;
+transition:.3s;
+}
+
+header.scrolled{
+background:rgba(0,0,0,.7);
+}
+
+.logo{
+height:130px;
+margin-top:-25px;
+}
+
+nav{
+display:flex;
+align-items:center;
+}
+
+nav a{
+margin:0 12px;
+color:white;
+text-decoration:none;
+font-size:15px;
+transition:.3s;
+}
+
+nav a:hover{
+color:#ffeb3b;
+}
+
+/* ADMIN BUTTON */
+.admin-btn{
+background:#e91e63;
+padding:9px 17px;
+border-radius:25px;
+font-weight:600;
+}
+
+.admin-btn:hover{
+background:#ff4081;
+color:white;
+}
+
+.menu-toggle{
+display:none;
+font-size:28px;
+cursor:pointer;
+}
+
+/* HERO */
+.hero{
+height:100vh;
+position:relative;
+}
+
+.slide{
+position:absolute;
+width:100%;
+height:100%;
+background-size:cover;
+background-position:center;
+opacity:0;
+transition:1s;
+}
+
+.slide.active{
+opacity:1;
+}
+
+.overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.6);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.overlay h1{
+font-size:55px;
+}
+
+.overlay p{
+font-size:20px;
+}
+
+.btn{
+margin-top:20px;
+padding:14px 28px;
+background:#e91e63;
+border:none;
+color:white;
+border-radius:30px;
+cursor:pointer;
+font-size:16px;
+}
+
+/* SECTIONS */
+section{
+padding:80px 8%;
+}
+
+h2{
+text-align:center;
+margin-bottom:40px;
+font-size:30px;
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+/* CARDS */
+.card{
+background:rgba(255,255,255,.1);
+padding:25px;
+border-radius:15px;
+backdrop-filter:blur(10px);
+text-align:center;
+}
+
+/* COUNTERS */
+.counter{
+font-size:40px;
+font-weight:bold;
+color:#ffeb3b;
+}
+
+/* STORIES */
+.testimonial{
+background:rgba(255,255,255,.15);
+padding:20px;
+border-radius:15px;
+font-style:italic;
+}
+
+/* GALLERY */
+.gallery img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:10px;
+transition:.3s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+/* FORM */
+input{
+padding:10px;
+margin:10px;
+width:250px;
+border:none;
+border-radius:5px;
+}
+
+/* REVEAL */
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:.8s;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* ADMIN PAGE */
+#adminPanel{
+display:none;
+min-height:100vh;
+padding:120px 8% 80px;
+background:linear-gradient(135deg,#1b5e20,#880e4f);
+}
+
+.admin-container{
+max-width:1000px;
+margin:auto;
+}
+
+.admin-box{
+background:rgba(255,255,255,.12);
+padding:30px;
+border-radius:18px;
+margin-bottom:25px;
+backdrop-filter:blur(10px);
+}
+
+.admin-box h2{
+margin-bottom:20px;
+}
+
+.admin-input,
+.admin-textarea{
+width:100%;
+max-width:600px;
+padding:13px;
+margin:8px 0;
+border:none;
+border-radius:7px;
+}
+
+.admin-textarea{
+height:120px;
+resize:vertical;
+}
+
+.admin-card{
+background:rgba(255,255,255,.1);
+padding:15px;
+border-radius:12px;
+margin:10px 0;
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.admin-card img{
+width:100px;
+height:75px;
+object-fit:cover;
+border-radius:8px;
+}
+
+.delete-btn{
+background:#d50000;
+border:none;
+padding:8px 15px;
+border-radius:20px;
+color:white;
+cursor:pointer;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+nav{
+position:absolute;
+top:80px;
+left:0;
+width:100%;
+background:black;
+flex-direction:column;
+display:none;
+}
+
+nav.active{
+display:flex;
+}
+
+nav a{
+padding:15px;
+border-bottom:1px solid #333;
+width:100%;
+text-align:center;
+}
+
+.menu-toggle{
+display:block;
+}
+
+.logo{
+height:95px;
+margin-top:-10px;
+}
+
+.overlay h1{
+font-size:38px;
+}
+
+.overlay p{
+font-size:16px;
+}
+
+.admin-card{
+flex-direction:column;
+align-items:flex-start;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header id="navbar">
+
+<img src="logo.png.png" class="logo" alt="Sympathy Rwanda">
+
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+<nav id="nav">
+
+<a href="#" onclick="showWebsite()">Home</a>
+
+<a href="#impact">Impact</a>
+
+<a href="#about">About</a>
+
+<a href="#programs">Programs</a>
+
+<a href="#testimonials">Stories</a>
+
+<a href="#gallery">Gallery</a>
+
+<a href="#donate">Donate</a>
+
+<a href="#adminPanel"
+class="admin-btn"
+onclick="openAdmin()">
+Admin
+</a>
+
+</nav>
+
+</header>
+
+
+<!-- WEBSITE -->
+
+<div id="website">
+
+<!-- HERO -->
+
+<div class="hero">
+
+<div class="slide active"
+style="background-image:url('old2.jpg')">
+</div>
+
+<div class="slide"
+style="background-image:url('image1.jpg')">
+</div>
+
+<div class="slide"
+style="background-image:url('image2.jpg')">
+</div>
+
+<div class="slide"
+style="background-image:url('old1.jpg')">
+</div>
+
+<div class="overlay">
+
+<h1>Sympathy Rwanda</h1>
+
+<p>
+Hope, Protection, and Opportunity for Every Child.
+</p>
+
+<button
+class="btn"
+onclick="location.href='#donate'">
+Donate Now
+</button>
+
+</div>
+
+</div>
+
+
+<!-- IMPACT -->
+
+<section id="impact" class="reveal">
+
+<h2>Our Impact</h2>
+
+<div class="grid">
+
+<div class="card">
+<div class="counter" data-target="500">0</div>
+<p>Children Supported</p>
+</div>
+
+<div class="card">
+<div class="counter" data-target="200">0</div>
+<p>Youth Trained</p>
+</div>
+
+<div class="card">
+<div class="counter" data-target="100">0</div>
+<p>Women Empowered</p>
+</div>
+
+<div class="card">
+<div class="counter" data-target="50">0</div>
+<p>Communities Reached</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about" class="reveal">
+
+<h2>About Us</h2>
+
+<p>
+<strong>Sympathy Rwanda</strong> is a Rwandan organization committed to promoting and protecting children's rights while empowering families, young people, women, and communities to create safer and more inclusive environments for children.
+</p>
+
+<br>
+
+<p>
+Through <strong>advocacy, education, skills development, community engagement, and family training</strong>, we work with communities to address challenges affecting children and vulnerable groups. We believe that lasting change happens when children are protected, families are empowered, and communities have the knowledge and resources to take action.
+</p>
+
+<br>
+
+<p>
+Our work focuses on creating opportunities, raising awareness, strengthening families, and supporting communities to build a future where every child can grow up <strong>safe, respected, educated, and empowered</strong>.
+</p>
+
+<br>
+
+<h3>Mission</h3>
+
+<p>
+<strong>To promote and protect children's rights while empowering families and communities through education, advocacy, skills development, and meaningful community engagement.</strong>
+</p>
+
+<br>
+
+<h3>Vision</h3>
+
+<p>
+<strong>A Rwanda where every child is protected, respected, empowered, and given the opportunity to reach their full potential.</strong>
+</p>
+
+<br>
+
+<h3>What We Do</h3>
+
+<div class="grid">
+
+<div class="card">
+<h3>Child Rights & Protection</h3>
+<p>Promoting awareness and protection of children's rights.</p>
+</div>
+
+<div class="card">
+<h3>Education & Skills Development</h3>
+<p>Supporting children and young people with knowledge and practical skills.</p>
+</div>
+
+<div class="card">
+<h3>Family Empowerment</h3>
+<p>Providing families with knowledge and tools to better support and protect children.</p>
+</div>
+
+<div class="card">
+<h3>Women & Youth Empowerment</h3>
+<p>Creating opportunities for women and young people to become more economically and socially empowered.</p>
+</div>
+
+<div class="card">
+<h3>Community Engagement</h3>
+<p>Working with communities to identify challenges and develop sustainable solutions.</p>
+</div>
+
+<div class="card">
+<h3>Advocacy & Awareness</h3>
+<p>Speaking up for children and vulnerable groups and promoting positive social change.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- PROGRAMS -->
+
+<section id="programs" class="reveal">
+
+<h2>Our Programs</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Advocacy</h3>
+<p>Child rights awareness.</p>
+</div>
+
+<div class="card">
+<h3>Youth Skills</h3>
+<p>Entrepreneurship training.</p>
+</div>
+
+<div class="card">
+<h3>Women Empowerment</h3>
+<p>Financial support programs.</p>
+</div>
+
+<div class="card">
+<h3>Community Engagement</h3>
+<p>GBV prevention initiatives.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STORIES -->
+
+<section id="testimonials" class="reveal">
+
+<h2>Stories & Impact</h2>
+
+<div class="grid">
+
+<div class="testimonial">
+"Sympathy Rwanda helped my child return to school."
+</div>
+
+<div class="testimonial">
+"The training changed my life."
+</div>
+
+<div class="testimonial">
+"Our community is safer now."
+</div>
+
+</div>
+
+</section>
+
+
+<!-- EVENTS -->
+<section id="events" class="reveal">
+<h2>Events</h2>
+<div class="grid" id="publicEvents">
+<p style="text-align:center;">No events published yet.</p>
+</div>
+</section>
+
+<!-- GALLERY -->
+
+<section id="gallery" class="reveal">
+
+<h2>Gallery</h2>
+
+<div class="grid gallery" id="galleryContainer">
+
+<img src="old1.jpg">
+<img src="old2.jpg">
+<img src="image1.jpg">
+<img src="image2.jpg">
+<img src="image3.jpg">
+<img src="image4.jpg">
+<img src="image5.jpg">
+<img src="image6.jpg">
+
+</div>
+
+</section>
+
+
+<!-- DONATE -->
+
+<section id="donate" class="reveal">
+
+<h2>Support Our Mission</h2>
+
+<h3>Mobile Money</h3>
+
+<p><b>0785009888</b></p>
+
+<p>Umuhoza Magnifique</p>
+
+<br>
+
+<h3>Bank Transfer</h3>
+
+<p><b>Bank:</b> ECOBANK</p>
+
+<p>
+<b>Account Name:</b> SYMPATHY RWANDA
+</p>
+
+<p>
+<b>Account Number:</b> 6832801481
+</p>
+
+<br>
+
+<h3>Confirm Donation</h3>
+
+<form action="https://formspree.io/f/mzdyblka"
+method="POST">
+
+<input
+type="text"
+name="name"
+placeholder="Your Name"
+required>
+
+<input
+type="email"
+name="email"
+placeholder="Your Email"
+required>
+
+<input
+type="number"
+name="amount"
+placeholder="Amount Sent"
+required>
+
+<br>
+
+<button class="btn">
+I Have Donated
+</button>
+
+</form>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact" class="reveal">
+
+<h2>Contact</h2>
+
+<p>Email: sympathyrwanda@gmail.com</p>
+
+<p>Phone: 0782459032 / 0785009888</p>
+
+<p>Kigali, Rwanda</p>
+
+</section>
+
+
+<footer style="text-align:center;padding:20px;">
+
+© 2026 Sympathy Rwanda |
+www.sympathyrwanda.org
+
+</footer>
+
+</div>
+
+
+<!-- ADMIN PANEL -->
+
+<section id="adminPanel">
+
+<div class="admin-container">
+
+<div class="admin-box" id="loginBox">
+
+<h2>🔐 Sympathy Rwanda Admin</h2>
+
+<p>
+Only the administrator can access this section.
+</p>
+
+<input
+class="admin-input"
+id="adminUsername"
+placeholder="Admin username">
+
+<input
+class="admin-input"
+id="adminPassword"
+type="password"
+placeholder="Admin password">
+
+<br>
+
+<button class="btn" onclick="adminLogin()">
+Login
+</button>
+
+<p id="loginMessage"></p>
+
+</div>
+
+
+<div class="admin-box"
+id="dashboard"
+style="display:none">
+
+<h2>Admin Dashboard</h2>
+
+<p>
+Welcome, Administrator.
+</p>
+
+<br>
+
+<!-- UPLOAD PHOTO -->
+
+<h3>📸 Add New Photo</h3>
+
+<input
+class="admin-input"
+type="text"
+id="photoTitle"
+placeholder="Photo title">
+
+<input
+class="admin-input"
+type="file"
+id="photoFile"
+accept="image/*">
+
+<br>
+
+<button class="btn"
+onclick="addPhoto()">
+Upload Photo
+</button>
+
+<hr style="margin:30px 0;opacity:.3">
+
+
+<!-- ADD EVENT -->
+
+<h3>📅 Add New Event</h3>
+
+<input
+class="admin-input"
+id="eventTitle"
+placeholder="Event title">
+
+<input
+class="admin-input"
+id="eventDate"
+type="date">
+
+<input
+class="admin-input"
+id="eventLocation"
+placeholder="Event location">
+
+<textarea
+class="admin-textarea"
+id="eventDescription"
+placeholder="Event description">
+</textarea>
+
+<input
+class="admin-input"
+type="file"
+id="eventImage"
+accept="image/*"
+multiple>
+<small style="display:block;margin:4px 0 10px;">You can select many photos for this event.</small>
+
+<br>
+
+<button class="btn"
+onclick="addEvent()">
+Publish Event
+</button>
+
+<hr style="margin:30px 0;opacity:.3">
+
+
+<h3>📷 Uploaded Photos</h3>
+
+<div id="adminPhotos"></div>
+
+<hr style="margin:30px 0;opacity:.3">
+
+<h3>📅 Published Events</h3>
+
+<div id="adminEvents"></div>
+
+<br>
+
+<button
+class="delete-btn"
+onclick="adminLogout()">
+Logout
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+/* NAVBAR */
+
+window.addEventListener("scroll",()=>{
+
+document
+.getElementById("navbar")
+.classList
+.toggle(
+"scrolled",
+window.scrollY>50
+);
+
+});
+
+
+/* SLIDESHOW */
+
+let slides=document.querySelectorAll(".slide");
+
+let index=0;
+
+setInterval(()=>{
+
+slides[index].classList.remove("active");
+
+index=(index+1)%slides.length;
+
+slides[index].classList.add("active");
+
+},4000);
+
+
+/* MOBILE MENU */
+
+function toggleMenu(){
+
+document
+.getElementById("nav")
+.classList
+.toggle("active");
+
+}
+
+
+/* REVEAL */
+
+window.addEventListener("scroll",()=>{
+
+document
+.querySelectorAll(".reveal")
+.forEach(el=>{
+
+let top=el.getBoundingClientRect().top;
+
+if(top<window.innerHeight-100){
+
+el.classList.add("active");
+
+}
+
+});
+
+});
+
+
+/* COUNTERS */
+
+let counters=document.querySelectorAll(".counter");
+
+let started=false;
+
+window.addEventListener("scroll",()=>{
+
+let section=document.getElementById("impact");
+
+let pos=section.getBoundingClientRect().top;
+
+if(pos<window.innerHeight && !started){
+
+counters.forEach(counter=>{
+
+let update=()=>{
+
+let target=+counter.getAttribute("data-target");
+
+let count=+counter.innerText;
+
+let speed=target/100;
+
+if(count<target){
+
+counter.innerText=Math.ceil(count+speed);
+
+setTimeout(update,20);
+
+}else{
+
+counter.innerText=target+"+";
+
+}
+
+};
+
+update();
+
+});
+
+started=true;
+
+}
+
+});
+
+
+/* ADMIN LOGIN */
+
+function adminLogin(){
+
+let username=
+document.getElementById("adminUsername").value;
+
+let password=
+document.getElementById("adminPassword").value;
+
+
+/*
+CHANGE THESE TWO VALUES
+TO YOUR OWN USERNAME AND PASSWORD.
+*/
+
+const ADMIN_USERNAME="admin";
+
+const ADMIN_PASSWORD="Sympathy@2026";
+
+
+if(
+username===ADMIN_USERNAME &&
+password===ADMIN_PASSWORD
+){
+
+localStorage.setItem(
+"sympathyAdmin",
+"true"
+);
+
+document.getElementById("loginBox").style.display="none";
+
+document.getElementById("dashboard").style.display="block";
+
+loadAdminContent();
+loadPublicEvents();
+
+}else{
+
+document.getElementById("loginMessage").innerHTML=
+"❌ Incorrect username or password.";
+
+}
+
+}
+
+
+/* OPEN ADMIN */
+
+function openAdmin(){
+
+document.getElementById("website").style.display="none";
+
+document.getElementById("adminPanel").style.display="block";
+
+window.scrollTo(0,0);
+
+if(localStorage.getItem("sympathyAdmin")==="true"){
+
+document.getElementById("loginBox").style.display="none";
+
+document.getElementById("dashboard").style.display="block";
+
+loadAdminContent();
+
+}else{
+
+document.getElementById("loginBox").style.display="block";
+
+document.getElementById("dashboard").style.display="none";
+
+}
+
+}
+
+
+/* BACK TO WEBSITE */
+
+function showWebsite(){
+
+document.getElementById("adminPanel").style.display="none";
+
+document.getElementById("website").style.display="block";
+
+}
+
+
+/* LOGOUT */
+
+function adminLogout(){
+
+localStorage.removeItem("sympathyAdmin");
+
+location.reload();
+
+}
+
+
+/* PHOTO UPLOAD */
+
+function addPhoto(){
+
+let file=
+document.getElementById("photoFile").files[0];
+
+let title=
+document.getElementById("photoTitle").value ||
+"Sympathy Rwanda";
+
+if(!file){
+
+alert("Please select a photo.");
+
+return;
+
+}
+
+let reader=new FileReader();
+
+reader.onload=function(e){
+
+let photos=
+JSON.parse(
+localStorage.getItem("sympathyPhotos") || "[]"
+);
+
+photos.push({
+
+id:Date.now(),
+
+title:title,
+
+image:e.target.result
+
+});
+
+localStorage.setItem(
+"sympathyPhotos",
+JSON.stringify(photos)
+);
+
+document.getElementById("photoFile").value="";
+
+document.getElementById("photoTitle").value="";
+
+loadAdminContent();
+
+loadGallery();
+
+alert("Photo added successfully.");
+
+};
+
+reader.readAsDataURL(file);
+
+}
+
+
+/* EVENT */
+
+function addEvent(){
+
+let title=
+document.getElementById("eventTitle").value;
+
+let date=
+document.getElementById("eventDate").value;
+
+let location=
+document.getElementById("eventLocation").value;
+
+let description=
+document.getElementById("eventDescription").value;
+
+let files=[...document.getElementById("eventImage").files];
+
+if(!title || !date || !description){
+
+alert(
+"Please enter the event title, date and description."
+);
+
+return;
+
+}
+
+function readFile(file){
+return new Promise((resolve,reject)=>{
+let reader=new FileReader();
+reader.onload=e=>{
+let img=new Image();
+img.onload=()=>{
+const MAX=1400;
+let w=img.width;
+let h=img.height;
+if(w>MAX || h>MAX){
+if(w>=h){ h=Math.round(h*MAX/w); w=MAX; }
+else { w=Math.round(w*MAX/h); h=MAX; }
+}
+let canvas=document.createElement("canvas");
+canvas.width=w;
+canvas.height=h;
+let ctx=canvas.getContext("2d");
+ctx.drawImage(img,0,0,w,h);
+resolve(canvas.toDataURL("image/jpeg",0.72));
+};
+img.onerror=reject;
+img.src=e.target.result;
+};
+reader.onerror=reject;
+reader.readAsDataURL(file);
+});
+}
+
+async function saveEvent(){
+
+let images=[];
+
+for(let file of files){
+images.push(await readFile(file));
+}
+
+let events=
+JSON.parse(
+localStorage.getItem("sympathyEvents") || "[]"
+);
+
+events.push({
+
+id:Date.now(),
+
+title:title,
+
+date:date,
+
+location:location,
+
+description:description,
+
+images:images,
+
+/* keeps compatibility with older events */
+image:images.length ? images[0] : null
+
+});
+
+try{
+localStorage.setItem(
+"sympathyEvents",
+JSON.stringify(events)
+);
+}catch(error){
+alert("The event could not be saved because the browser storage is full. Please use fewer/smaller event photos and try again.");
+return;
+}
+
+document.getElementById("eventTitle").value="";
+
+document.getElementById("eventDate").value="";
+
+document.getElementById("eventLocation").value="";
+
+document.getElementById("eventDescription").value="";
+document.getElementById("eventImage").value="";
+
+loadAdminContent();
+loadPublicEvents();
+
+alert("Event published successfully.");
+
+}
+
+saveEvent();
+
+}
+
+
+/* PUBLIC EVENTS */
+function loadPublicEvents(){
+
+let events=JSON.parse(localStorage.getItem("sympathyEvents") || "[]");
+let container=document.getElementById("publicEvents");
+if(!container) return;
+
+if(events.length===0){
+container.innerHTML='<p style="text-align:center;">No events published yet.</p>';
+return;
+}
+
+container.innerHTML="";
+events.forEach(event=>{
+
+let photos=event.images || (event.image ? [event.image] : []);
+
+let card=document.createElement("div");
+card.className="card";
+
+let photoHtml=photos.length ? `
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:18px;">
+${photos.map(img=>`<div style="background:#f4f4f4;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:180px;"><img src="${img}" style="width:100%;height:300px;object-fit:contain;border-radius:10px;"></div>`).join("")}
+</div>` : "";
+
+card.innerHTML=`
+${photoHtml}
+<h3>${escapeHtml(event.title)}</h3>
+<p><strong>Date:</strong> ${escapeHtml(event.date)}</p>
+${event.location ? `<p><strong>Location:</strong> ${escapeHtml(event.location)}</p>` : ""}
+<p style="margin-top:10px;">${escapeHtml(event.description)}</p>`;
+container.appendChild(card);
+});
+}
+
+function escapeHtml(value){
+let div=document.createElement("div");
+div.textContent=value || "";
+return div.innerHTML;
+}
+
+/* LOAD ADMIN CONTENT */
+
+function loadAdminContent(){
+
+let photos=
+JSON.parse(
+localStorage.getItem("sympathyPhotos") || "[]"
+);
+
+let events=
+JSON.parse(
+localStorage.getItem("sympathyEvents") || "[]"
+);
+
+
+document.getElementById("adminPhotos").innerHTML="";
+
+photos.forEach(photo=>{
+
+let div=document.createElement("div");
+
+div.className="admin-card";
+
+div.innerHTML=`
+
+<img src="${photo.image}">
+
+<div style="flex:1">
+
+<b>${photo.title}</b>
+
+</div>
+
+<button
+class="delete-btn"
+onclick="deletePhoto(${photo.id})">
+
+Delete
+
+</button>
+
+`;
+
+document
+.getElementById("adminPhotos")
+.appendChild(div);
+
+});
+
+
+document.getElementById("adminEvents").innerHTML="";
+
+events.forEach(event=>{
+
+let div=document.createElement("div");
+
+div.className="admin-card";
+
+div.innerHTML=`
+
+${(event.images && event.images.length) || event.image ?
+`<div style="display:flex;gap:6px;flex-wrap:wrap;">${(event.images || [event.image]).map(img=>`<img src="${img}" style="width:90px;height:70px;object-fit:contain;background:#f4f4f4;border-radius:8px;">`).join("")}</div>`
+:
+""}
+
+<div style="flex:1">
+
+<b>${event.title}</b>
+
+<br>
+
+${event.date}
+
+<br>
+
+${event.location}
+
+<br><br>
+
+${event.description}
+
+</div>
+
+<button
+class="delete-btn"
+onclick="deleteEvent(${event.id})">
+
+Delete
+
+</button>
+
+`;
+
+document
+.getElementById("adminEvents")
+.appendChild(div);
+
+});
+
+}
+
+
+/* DELETE PHOTO */
+
+function deletePhoto(id){
+
+let photos=
+JSON.parse(
+localStorage.getItem("sympathyPhotos") || "[]"
+);
+
+photos=
+photos.filter(photo=>photo.id!==id);
+
+localStorage.setItem(
+"sympathyPhotos",
+JSON.stringify(photos)
+);
+
+loadAdminContent();
+
+loadGallery();
+
+}
+
+
+/* DELETE EVENT */
+
+function deleteEvent(id){
+
+let events=
+JSON.parse(
+localStorage.getItem("sympathyEvents") || "[]"
+);
+
+events=
+events.filter(event=>event.id!==id);
+
+localStorage.setItem(
+"sympathyEvents",
+JSON.stringify(events)
+);
+
+loadAdminContent();
+loadPublicEvents();
+
+}
+
+
+/* DISPLAY PHOTOS ON WEBSITE */
+
+function loadGallery(){
+
+let photos=
+JSON.parse(
+localStorage.getItem("sympathyPhotos") || "[]"
+);
+
+let gallery=
+document.getElementById("galleryContainer");
+
+photos.forEach(photo=>{
+
+let img=document.createElement("img");
+
+img.src=photo.image;
+
+img.alt=photo.title;
+
+gallery.appendChild(img);
+
+});
+
+}
+
+
+/* START */
+
+loadGallery();
+
+</script>
+
+</body>
+</html>
