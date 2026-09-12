@@ -26,58 +26,130 @@ scroll-behavior:smooth;
 header{
 position:fixed;
 width:100%;
-padding:15px 8%;
+padding:0 5%;
 display:flex;
 justify-content:space-between;
 align-items:center;
 z-index:1000;
-height:80px;
+height:72px;
 transition:.3s;
 }
 
 header.scrolled{
-background:rgba(0,0,0,.7);
+background:rgba(0,0,0,.72);
+backdrop-filter:blur(10px);
+box-shadow:0 2px 12px rgba(0,0,0,.25);
+}
+
+body.light-mode header{
+background:rgba(255,255,255,.82);
+backdrop-filter:blur(12px);
+box-shadow:0 1px 10px rgba(2,6,23,.07);
 }
 
 .logo{
-height:130px;
-margin-top:-25px;
+height:56px;
 }
 
 nav{
 display:flex;
 align-items:center;
+gap:2px;
 }
 
 nav a{
-margin:0 12px;
+margin:0 6px;
+padding:9px 13px;
 color:white;
 text-decoration:none;
-font-size:15px;
+font-size:14.5px;
 transition:.3s;
+border-radius:8px;
+}
+
+body.light-mode nav a{
+color:#1e293b;
 }
 
 nav a:hover{
 color:#ffeb3b;
 }
 
-/* ADMIN BUTTON */
-.admin-btn{
+body.light-mode nav a:hover{
+color:#d81b60;
+}
+
+/* DONATE BUTTON */
+.donate-btn{
 background:#e91e63;
-padding:9px 17px;
+padding:10px 20px;
 border-radius:25px;
 font-weight:600;
+color:#ffffff;
+box-shadow:0 4px 12px rgba(233,30,99,.35);
+}
+
+.donate-btn:hover{
+background:#ff4081;
+color:#ffffff !important;
+}
+
+/* ADMIN BUTTON */
+.admin-btn{
+border:2px solid #e91e63;
+padding:8px 17px;
+border-radius:25px;
+font-weight:600;
+color:#e91e63;
 }
 
 .admin-btn:hover{
-background:#ff4081;
-color:white;
+background:#e91e63;
+color:#ffffff !important;
+}
+
+/* THEME TOGGLE */
+.theme-toggle{
+background:transparent;
+border:2px solid #ffffff;
+color:#ffffff;
+width:38px;
+height:38px;
+border-radius:50%;
+cursor:pointer;
+font-size:16px;
+display:flex;
+align-items:center;
+justify-content:center;
+transition:.3s;
+line-height:1;
+margin-left:8px;
+font-family:'Poppins',sans-serif;
+}
+
+.theme-toggle:hover{
+background:rgba(255,255,255,.15);
+transform:rotate(15deg);
+}
+
+body.light-mode .theme-toggle{
+border-color:#334155;
+color:#334155;
+}
+
+body.light-mode .theme-toggle:hover{
+background:rgba(15,23,42,.08);
 }
 
 .menu-toggle{
 display:none;
-font-size:28px;
+font-size:26px;
 cursor:pointer;
+color:#ffffff;
+}
+
+body.light-mode .menu-toggle{
+color:#1e293b;
 }
 
 /* HERO */
@@ -573,17 +645,181 @@ font-family:'Poppins',sans-serif;
 background:#dc2626;
 }
 
+/* LIGHT MODE SITE OVERRIDES */
+body.light-mode #website{
+background:linear-gradient(135deg,#eef7f1,#fdf2f7);
+color:#1e293b;
+}
+
+body.light-mode #website h2,
+body.light-mode #website h3{
+color:#0f172a;
+}
+
+body.light-mode #website p{
+color:#475569;
+}
+
+body.light-mode #website .card,
+body.light-mode #website .testimonial{
+background:#ffffff;
+color:#334155;
+box-shadow:0 6px 18px rgba(2,6,23,.08);
+}
+
+body.light-mode #website .testimonial{
+background:#f8fafc;
+}
+
+body.light-mode #website .card h3{
+color:#0f172a;
+}
+
+body.light-mode #website .counter{
+color:#d81b60;
+}
+
+body.light-mode #website .overlay,
+body.light-mode #website .overlay h1,
+body.light-mode #website .overlay p{
+color:#ffffff;
+}
+
+/* ADMIN DARK MODE (default theme) */
+body:not(.light-mode) #adminPanel{
+background:#0b1220;
+}
+
+body:not(.light-mode) .admin-topbar{
+background:#151e30;
+border-bottom-color:#25344d;
+}
+
+body:not(.light-mode) .admin-topbar-brand{
+color:#e2e8f0;
+}
+
+body:not(.light-mode) .btn-exit{
+background:#1e293b;
+color:#cbd5e1;
+}
+
+body:not(.light-mode) .btn-exit:hover{
+background:#27344b;
+}
+
+body:not(.light-mode) .admin-login-card{
+background:#111a2c;
+box-shadow:0 20px 45px rgba(0,0,0,.4);
+}
+
+body:not(.light-mode) .field label{
+color:#8b9cb5;
+}
+
+body:not(.light-mode) .admin-login-body{
+background:#111a2c;
+}
+
+body:not(.light-mode) .admin-input,
+body:not(.light-mode) .admin-textarea{
+background:#0f172a;
+color:#e2e8f0;
+border-color:#25344d;
+}
+
+body:not(.light-mode) .admin-input:focus,
+body:not(.light-mode) .admin-textarea:focus{
+border-color:#38bdf8;
+background:#0f172a;
+box-shadow:0 0 0 4px rgba(56,189,248,.18);
+}
+
+body:not(.light-mode) .admin-input::placeholder,
+body:not(.light-mode) .admin-textarea::placeholder{
+color:#64748b;
+}
+
+body:not(.light-mode) input[type=file].admin-input{
+background:#0f172a;
+border-color:#334155;
+color:#8b9cb5;
+}
+
+body:not(.light-mode) input[type=file].admin-input:hover{
+border-color:#38bdf8;
+background:#12203a;
+}
+
+body:not(.light-mode) .hint,
+body:not(.light-mode) .box-sub{
+color:#8b9cb5;
+}
+
+body:not(.light-mode) #loginMessage{
+color:#e2e8f0;
+}
+
+body:not(.light-mode) .dash-head{
+box-shadow:0 12px 30px rgba(0,0,0,.4);
+}
+
+body:not(.light-mode) .admin-box{
+background:#111a2c;
+border-color:#25344d;
+box-shadow:0 8px 24px rgba(0,0,0,.25);
+}
+
+body:not(.light-mode) .admin-box h3,
+body:not(.light-mode) .section-title{
+color:#e2e8f0;
+}
+
+body:not(.light-mode) .admin-card{
+background:#111a2c;
+border-color:#25344d;
+}
+
+body:not(.light-mode) .admin-card:hover{
+border-color:#38bdf8;
+box-shadow:0 6px 16px rgba(0,0,0,.3);
+}
+
+body:not(.light-mode) .admin-card b{
+color:#e2e8f0;
+}
+
+body:not(.light-mode) .admin-card .admin-meta{
+color:#8b9cb5;
+}
+
+body:not(.light-mode) .delete-btn{
+background:#40121f;
+color:#fda4af;
+border-color:#7f1d2d;
+}
+
+body:not(.light-mode) .delete-btn:hover{
+background:#dc2626;
+color:#ffffff;
+}
+
 /* MOBILE */
 @media(max-width:768px){
 
 nav{
 position:absolute;
-top:80px;
+top:72px;
 left:0;
 width:100%;
-background:black;
+background:#0b1220;
 flex-direction:column;
 display:none;
+}
+
+body.light-mode nav{
+background:#ffffff;
+border-bottom:1px solid #e2e8f0;
 }
 
 nav.active{
@@ -597,13 +833,21 @@ width:100%;
 text-align:center;
 }
 
+body.light-mode nav a{
+border-bottom-color:#e2e8f0;
+}
+
 .menu-toggle{
 display:block;
 }
 
+.theme-toggle{
+margin-left:auto;
+margin-right:6px;
+}
+
 .logo{
-height:95px;
-margin-top:-10px;
+height:46px;
 }
 
 .overlay h1{
@@ -664,8 +908,6 @@ height:180px;
 
 <img src="logo.png.png" class="logo" alt="Sympathy Rwanda">
 
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
 <nav id="nav">
 
 <a href="#" onclick="showWebsite()">Home</a>
@@ -680,7 +922,10 @@ height:180px;
 
 <a href="#gallery">Gallery</a>
 
-<a href="#donate">Donate</a>
+<a href="#donate"
+class="donate-btn">
+Donate
+</a>
 
 <a href="#adminPanel"
 class="admin-btn"
@@ -689,6 +934,16 @@ Admin
 </a>
 
 </nav>
+
+<button
+class="theme-toggle"
+id="themeToggle"
+onclick="toggleTheme()"
+title="Switch light / dark mode">
+☀️
+</button>
+
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
 </header>
 
@@ -1435,6 +1690,8 @@ document.getElementById("adminPanel").style.display="block";
 
 window.scrollTo(0,0);
 
+document.getElementById("navbar").style.display="none";
+
 if(localStorage.getItem("sympathyAdmin")==="true"){
 
 document.getElementById("loginBox").style.display="none";
@@ -1462,6 +1719,12 @@ document.getElementById("adminPanel").style.display="none";
 
 document.getElementById("website").style.display="block";
 
+document.getElementById("navbar").style.display="flex";
+
+document.getElementById("nav").classList.remove("active");
+
+document.getElementById("navbar").classList.remove("scrolled");
+
 }
 
 
@@ -1472,6 +1735,39 @@ function adminLogout(){
 localStorage.removeItem("sympathyAdmin");
 
 location.reload();
+
+}
+
+
+/* THEME MODE */
+
+function applyTheme(mode){
+
+if(mode==="light"){
+
+document.body.classList.add("light-mode");
+
+document.getElementById("themeToggle").textContent="🌙";
+
+}else{
+
+document.body.classList.remove("light-mode");
+
+document.getElementById("themeToggle").textContent="☀️";
+
+}
+
+}
+
+function toggleTheme(){
+
+let isLight=document.body.classList.contains("light-mode");
+
+let mode=isLight?"dark":"light";
+
+localStorage.setItem("sympathyTheme",mode);
+
+applyTheme(mode);
 
 }
 
@@ -1875,6 +2171,10 @@ gallery.appendChild(img);
 /* START */
 
 loadGallery();
+
+let savedTheme=localStorage.getItem("sympathyTheme")||"dark";
+
+applyTheme(savedTheme);
 
 </script>
 
