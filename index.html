@@ -298,9 +298,20 @@ transform:translateY(-4px);
 background:rgba(255,255,255,.16);
 }
 
-.pay-icon{
-font-size:38px;
-margin-bottom:12px;
+.pay-photo{
+width:100%;
+height:150px;
+object-fit:cover;
+border-radius:12px;
+margin-bottom:16px;
+display:block;
+}
+
+.photo-credit{
+text-align:center;
+font-size:11px;
+color:rgba(255,255,255,.5);
+margin:-28px 0 44px;
 }
 
 .pay-card h3{
@@ -862,6 +873,10 @@ box-shadow:0 6px 18px rgba(2,6,23,.08);
 body.light-mode #website .pay-card:hover{
 background:#ffffff;
 box-shadow:0 10px 24px rgba(2,6,23,.12);
+}
+
+body.light-mode #website .photo-credit{
+color:#94a3b8;
 }
 
 body.light-mode #website .pay-sub,
@@ -1438,7 +1453,7 @@ the children and families we serve.
 
 <div class="pay-card">
 
-<div class="pay-icon">📱</div>
+<img src="mobile-money.jpg" class="pay-photo" alt="Mobile money payment">
 
 <h3>Mobile Money</h3>
 
@@ -1452,7 +1467,7 @@ the children and families we serve.
 
 <div class="pay-card">
 
-<div class="pay-icon">🏦</div>
+<img src="bank-cards.jpg" class="pay-photo" alt="Bank cards">
 
 <h3>Bank Transfer</h3>
 
@@ -1476,6 +1491,10 @@ the children and families we serve.
 </div>
 
 </div>
+
+<p class="photo-credit">
+Payment photos by Emolot &amp; Lotus Head via Wikimedia Commons (CC BY-SA)
+</p>
 
 <div class="donate-form-card">
 
