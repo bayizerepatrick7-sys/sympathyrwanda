@@ -211,35 +211,162 @@ transform:translateY(0);
 #adminPanel{
 display:none;
 min-height:100vh;
-padding:120px 8% 80px;
-background:linear-gradient(135deg,#1b5e20,#880e4f);
+padding:0;
+background:#f1f5f9;
+}
+
+.admin-topbar{
+background:#fff;
+border-bottom:1px solid #e2e8f0;
+padding:12px 24px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:100;
+box-shadow:0 1px 3px rgba(2,6,23,.05);
+}
+
+.admin-topbar-brand{
+display:flex;
+align-items:center;
+gap:12px;
+font-weight:600;
+color:#0f172a;
+font-size:15px;
+}
+
+.admin-topbar-brand img{
+height:38px;
+border-radius:8px;
+}
+
+.admin-badge{
+background:linear-gradient(135deg,#065f46,#9d174d);
+color:#fff;
+font-size:10.5px;
+font-weight:600;
+padding:4px 11px;
+border-radius:20px;
+text-transform:uppercase;
+letter-spacing:.6px;
+}
+
+.btn-exit{
+background:#f1f5f9;
+color:#475569;
+border:none;
+cursor:pointer;
+font-size:13px;
+font-weight:600;
+border-radius:8px;
+padding:9px 16px;
+transition:.3s;
+font-family:'Poppins',sans-serif;
+}
+
+.btn-exit:hover{
+background:#e2e8f0;
 }
 
 .admin-container{
-max-width:1000px;
-margin:auto;
+max-width:1100px;
+margin:0 auto;
+padding:32px 24px 60px;
 }
 
-.admin-box{
-background:rgba(255,255,255,.12);
-padding:30px;
-border-radius:18px;
-margin-bottom:25px;
-backdrop-filter:blur(10px);
+/* LOGIN CARD */
+.admin-login-wrap{
+max-width:420px;
+margin:50px auto 0;
 }
 
-.admin-box h2{
-margin-bottom:20px;
+.admin-login-card{
+background:#fff;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 20px 45px rgba(2,6,23,.14);
+}
+
+.admin-login-head{
+background:linear-gradient(135deg,#065f46,#9d174d);
+text-align:center;
+color:#fff;
+padding:36px 24px 28px;
+}
+
+.admin-login-head .lock-icon{
+width:64px;
+height:64px;
+margin:0 auto 14px;
+background:rgba(255,255,255,.16);
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:26px;
+}
+
+.admin-login-head h2{
+font-size:22px;
+margin:0 0 6px;
+color:#fff;
+text-align:center;
+}
+
+.admin-login-head p{
+font-size:13px;
+margin:0;
+opacity:.85;
+}
+
+.admin-login-body{
+padding:28px;
+}
+
+.field{
+margin-bottom:16px;
+}
+
+.field label{
+display:block;
+font-size:12px;
+font-weight:600;
+color:#475569;
+margin-bottom:6px;
+text-transform:uppercase;
+letter-spacing:.4px;
+}
+
+.field input{
+margin:0;
 }
 
 .admin-input,
 .admin-textarea{
 width:100%;
-max-width:600px;
-padding:13px;
-margin:8px 0;
-border:none;
-border-radius:7px;
+padding:12px 14px;
+border:1.5px solid #e2e8f0;
+border-radius:10px;
+font-size:14px;
+color:#0f172a;
+background:#f8fafc;
+transition:.25s;
+font-family:'Poppins',sans-serif;
+}
+
+.admin-input:focus,
+.admin-textarea:focus{
+outline:none;
+border-color:#0ea5e9;
+background:#fff;
+box-shadow:0 0 0 4px rgba(14,165,233,.12);
+}
+
+.admin-input::placeholder,
+.admin-textarea::placeholder{
+color:#94a3b8;
 }
 
 .admin-textarea{
@@ -247,30 +374,203 @@ height:120px;
 resize:vertical;
 }
 
+input[type=file].admin-input{
+padding:10px;
+border:1.5px dashed #cbd5e1;
+background:#f8fafc;
+cursor:pointer;
+color:#475569;
+font-size:13px;
+}
+
+input[type=file].admin-input:hover{
+border-color:#0ea5e9;
+background:#f0f9ff;
+}
+
+.hint{
+display:block;
+margin-top:6px;
+font-size:12px;
+color:#94a3b8;
+}
+
+.btn-login{
+width:100%;
+padding:13px;
+border:none;
+border-radius:10px;
+background:linear-gradient(135deg,#065f46,#9d174d);
+color:#fff;
+font-size:15px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+font-family:'Poppins',sans-serif;
+}
+
+.btn-login:hover{
+transform:translateY(-1px);
+box-shadow:0 10px 20px rgba(9,80,63,.28);
+}
+
+#loginMessage{
+margin-top:14px;
+text-align:center;
+font-size:13.5px;
+font-weight:600;
+}
+
+/* DASHBOARD */
+.dash-head{
+background:linear-gradient(135deg,#065f46,#9d174d);
+border-radius:18px;
+color:#fff;
+padding:26px 28px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:14px;
+box-shadow:0 12px 30px rgba(9,80,63,.22);
+margin-bottom:26px;
+}
+
+.dash-head h2{
+margin:0 0 5px;
+text-align:left;
+font-size:23px;
+color:#fff;
+}
+
+.dash-head p{
+margin:0;
+font-size:14px;
+opacity:.88;
+}
+
+.admin-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:24px;
+}
+
+.admin-box{
+background:#fff;
+border:1px solid #e2e8f0;
+border-radius:16px;
+padding:24px;
+margin:0;
+box-shadow:0 8px 24px rgba(2,6,23,.06);
+}
+
+.admin-box h3{
+margin:0 0 5px;
+font-size:16px;
+color:#0f172a;
+}
+
+.box-sub{
+font-size:13px;
+color:#64748b;
+margin:0 0 18px;
+}
+
+.btn-action{
+margin-top:6px;
+padding:12px 22px;
+border:none;
+border-radius:10px;
+background:linear-gradient(135deg,#065f46,#059669);
+color:#fff;
+font-size:14px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+font-family:'Poppins',sans-serif;
+}
+
+.btn-action:hover{
+transform:translateY(-1px);
+box-shadow:0 8px 18px rgba(5,150,105,.32);
+}
+
+.section-title{
+font-size:17px;
+font-weight:600;
+color:#0f172a;
+margin:30px 0 14px;
+}
+
 .admin-card{
-background:rgba(255,255,255,.1);
-padding:15px;
-border-radius:12px;
+background:#fff;
+border:1px solid #e2e8f0;
+border-radius:14px;
+padding:14px;
 margin:10px 0;
 display:flex;
 align-items:center;
-gap:15px;
+gap:14px;
+transition:.25s;
+}
+
+.admin-card:hover{
+border-color:#0ea5e9;
+box-shadow:0 6px 16px rgba(2,6,23,.08);
 }
 
 .admin-card img{
 width:100px;
 height:75px;
 object-fit:cover;
-border-radius:8px;
+border-radius:10px;
+}
+
+.admin-card b{
+font-size:14px;
+color:#0f172a;
+}
+
+.admin-card .admin-meta{
+font-size:12.5px;
+color:#64748b;
+margin-top:2px;
 }
 
 .delete-btn{
-background:#d50000;
-border:none;
+background:#fef2f2;
+color:#dc2626;
+border:1.5px solid #fecaca;
 padding:8px 15px;
-border-radius:20px;
-color:white;
+border-radius:22px;
+font-size:13px;
+font-weight:600;
 cursor:pointer;
+transition:.25s;
+font-family:'Poppins',sans-serif;
+}
+
+.delete-btn:hover{
+background:#dc2626;
+color:#fff;
+}
+
+.btn-logout{
+margin-top:30px;
+background:#ef4444;
+color:#fff;
+border:none;
+cursor:pointer;
+font-size:14px;
+font-weight:600;
+border-radius:10px;
+padding:12px 28px;
+transition:.3s;
+font-family:'Poppins',sans-serif;
+}
+
+.btn-logout:hover{
+background:#dc2626;
 }
 
 /* MOBILE */
@@ -317,6 +617,40 @@ font-size:16px;
 .admin-card{
 flex-direction:column;
 align-items:flex-start;
+}
+
+.admin-grid{
+grid-template-columns:1fr;
+}
+
+.admin-topbar{
+flex-wrap:wrap;
+gap:8px;
+padding:12px 16px;
+}
+
+.admin-login-wrap{
+margin:24px auto 0;
+}
+
+.dash-head{
+flex-direction:column;
+text-align:center;
+padding:22px 20px;
+}
+
+.dash-head h2{
+text-align:center;
+font-size:20px;
+}
+
+.admin-container{
+padding:20px 16px 50px;
+}
+
+.admin-card img{
+width:100%;
+height:180px;
 }
 
 }
@@ -692,30 +1026,68 @@ www.sympathyrwanda.org
 
 <section id="adminPanel">
 
+<div class="admin-topbar">
+
+<div class="admin-topbar-brand">
+
+<img src="logo.png.png" alt="Sympathy Rwanda">
+
+<span>Sympathy Rwanda</span>
+
+<span class="admin-badge">Admin</span>
+
+</div>
+
+<button class="btn-exit" onclick="showWebsite()">
+← Back to Website
+</button>
+
+</div>
+
 <div class="admin-container">
 
-<div class="admin-box" id="loginBox">
+<!-- LOGIN -->
 
-<h2>🔐 Sympathy Rwanda Admin</h2>
+<div class="admin-login-wrap" id="loginBox">
 
-<p>
-Only the administrator can access this section.
-</p>
+<div class="admin-login-card">
+
+<div class="admin-login-head">
+
+<div class="lock-icon">🔐</div>
+
+<h2>Admin Login</h2>
+
+<p>Only the administrator can access this section.</p>
+
+</div>
+
+<div class="admin-login-body">
+
+<div class="field">
+
+<label for="adminUsername">Username</label>
 
 <input
 class="admin-input"
 id="adminUsername"
-placeholder="Admin username">
+placeholder="Enter your username">
+
+</div>
+
+<div class="field">
+
+<label for="adminPassword">Password</label>
 
 <input
 class="admin-input"
 id="adminPassword"
 type="password"
-placeholder="Admin password">
+placeholder="Enter your password">
 
-<br>
+</div>
 
-<button class="btn" onclick="adminLogin()">
+<button class="btn-login" onclick="adminLogin()">
 Login
 </button>
 
@@ -723,28 +1095,52 @@ Login
 
 </div>
 
+</div>
 
-<div class="admin-box"
-id="dashboard"
-style="display:none">
+</div>
 
-<h2>Admin Dashboard</h2>
 
-<p>
-Welcome, Administrator.
-</p>
+<!-- DASHBOARD -->
 
-<br>
+<div id="dashboard" style="display:none">
+
+<div class="dash-head">
+
+<div>
+
+<h2>Welcome, Administrator</h2>
+
+<p>Manage photos and events for Sympathy Rwanda.</p>
+
+</div>
+
+</div>
+
+<div class="admin-grid">
 
 <!-- UPLOAD PHOTO -->
 
+<div class="admin-box">
+
 <h3>📸 Add New Photo</h3>
+
+<p class="box-sub">Share a new image in the gallery.</p>
+
+<div class="field">
+
+<label for="photoTitle">Photo title</label>
 
 <input
 class="admin-input"
 type="text"
 id="photoTitle"
-placeholder="Photo title">
+placeholder="e.g. Community gathering">
+
+</div>
+
+<div class="field">
+
+<label for="photoFile">Choose image</label>
 
 <input
 class="admin-input"
@@ -752,40 +1148,74 @@ type="file"
 id="photoFile"
 accept="image/*">
 
-<br>
+</div>
 
-<button class="btn"
-onclick="addPhoto()">
-Upload Photo
+<button class="btn-action" onclick="addPhoto()">
+📤 Upload Photo
 </button>
 
-<hr style="margin:30px 0;opacity:.3">
-
+</div>
 
 <!-- ADD EVENT -->
 
+<div class="admin-box">
+
 <h3>📅 Add New Event</h3>
+
+<p class="box-sub">Publish an event with photos.</p>
+
+<div class="field">
+
+<label for="eventTitle">Event title</label>
 
 <input
 class="admin-input"
 id="eventTitle"
-placeholder="Event title">
+placeholder="e.g. Annual gala dinner">
+
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+
+<div class="field">
+
+<label for="eventDate">Date</label>
 
 <input
 class="admin-input"
 id="eventDate"
 type="date">
 
+</div>
+
+<div class="field">
+
+<label for="eventLocation">Location</label>
+
 <input
 class="admin-input"
 id="eventLocation"
-placeholder="Event location">
+placeholder="City">
+
+</div>
+
+</div>
+
+<div class="field">
+
+<label for="eventDescription">Description</label>
 
 <textarea
 class="admin-textarea"
 id="eventDescription"
-placeholder="Event description">
+placeholder="Describe the event...">
 </textarea>
+
+</div>
+
+<div class="field">
+
+<label for="eventImage">Event photos</label>
 
 <input
 class="admin-input"
@@ -793,35 +1223,36 @@ type="file"
 id="eventImage"
 accept="image/*"
 multiple>
-<small style="display:block;margin:4px 0 10px;">You can select many photos for this event.</small>
 
-<br>
+<small class="hint">You can select many photos for this event.</small>
 
-<button class="btn"
-onclick="addEvent()">
-Publish Event
+</div>
+
+<button class="btn-action" onclick="addEvent()">
+📌 Publish Event
 </button>
 
-<hr style="margin:30px 0;opacity:.3">
+</div>
 
+</div>
 
-<h3>📷 Uploaded Photos</h3>
+<h3 class="section-title">📷 Uploaded Photos</h3>
 
 <div id="adminPhotos"></div>
 
-<hr style="margin:30px 0;opacity:.3">
-
-<h3>📅 Published Events</h3>
+<h3 class="section-title">📅 Published Events</h3>
 
 <div id="adminEvents"></div>
 
-<br>
+<div style="text-align:center;">
 
 <button
-class="delete-btn"
+class="btn-logout"
 onclick="adminLogout()">
 Logout
 </button>
+
+</div>
 
 </div>
 
